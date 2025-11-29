@@ -38,7 +38,8 @@ public class Main {
      * @return whether the string satisfies the password requirements
      */
     public static boolean checkForPassword(String str, int minLength) {
-        final boolean propertyOne = Pattern.matches("REPLACE WITH CORRECT REGEX", str);
+        if (str == null) return false;
+        final boolean propertyOne = Pattern.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{" + minLength + ",}$",str);
         // as needed, modify this code.
         return propertyOne;
     }
